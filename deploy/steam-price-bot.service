@@ -1,0 +1,17 @@
+[Unit]
+Description=Telegram Steam price tracker bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/steam-price-bot
+EnvironmentFile=/opt/steam-price-bot/.env
+ExecStart=/usr/bin/python3 /opt/steam-price-bot/bot.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
